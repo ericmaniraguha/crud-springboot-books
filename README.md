@@ -29,3 +29,5 @@ This is a simple CRUD (Create, Read, Update, Delete) application built with Spri
 #### Interacting with the Database
 To interact with the database, you can use tools like Postman API to execute GET, POST, PUT, and DELETE requests to the appropriate endpoints.
 Note: I ensured to set the request headers, request bodies (if required), and use the correct HTTP methods while interacting with the API.
+
+https://app.getpostman.com/join-team?invite_code=f4c2760899e676bea71316083dab32b9&target_code=38ba776f2782ddb0e5ca41ff2e47bad8 
