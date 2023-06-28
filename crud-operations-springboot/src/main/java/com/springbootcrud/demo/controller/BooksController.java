@@ -1,5 +1,6 @@
 package com.springbootcrud.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,15 +38,26 @@ public class BooksController {
 	@DeleteMapping("/book/{bookid}")  
 	private void deleteBook(@PathVariable("bookid") int bookid)   
 	{  
-	booksService.delete(bookid);  
+	booksService.delete( bookid);  
 	}  
 	//creating post mapping that post the book detail in the database  
-	@PostMapping("/books")  
-	private int saveBook(@RequestBody Books books)   
-	{  
-	booksService.saveOrUpdate(books);  
-	return books.getBookid();  
-	}  
+//	@PostMapping("/books")  
+//	private int saveBook(@RequestBody Books books)   
+//	{  
+//	booksService.saveOrUpdate(books);  
+//	return books.getBookid();  
+//	}  
+	
+	@PostMapping("/books")
+	private List<Integer> saveBooks(@RequestBody List<Books> booksList) {
+	    List<Integer> savedBookIds = new ArrayList<>();
+	    for (Books books : booksList) {
+	        booksService.saveOrUpdate(books);
+	        savedBookIds.add(books.getBookid());
+	    }
+	    return savedBookIds;
+	}
+	
 	//creating put mapping that updates the book detail   
 	@PutMapping("/books")  
 	private Books update(@RequestBody Books books)   
