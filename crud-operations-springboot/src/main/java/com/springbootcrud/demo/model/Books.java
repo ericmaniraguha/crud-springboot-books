@@ -2,6 +2,8 @@ package com.springbootcrud.demo.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.Table;
 public class Books {
       
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private int bookid;
 	@Column
@@ -49,6 +52,10 @@ public class Books {
 		this.author = author;
 		this.price = price;
 	}
+	   public Books() {
+	        // Default constructor required by JPA
+	    }
+	   
 	public Books(int bookid) {
 		super();
 		this.bookid = bookid;
