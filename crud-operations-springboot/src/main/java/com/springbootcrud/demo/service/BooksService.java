@@ -23,7 +23,7 @@ public class BooksService {
 	return books;  
 	}  
 	//getting a specific record by using the method findById() of CrudRepository  
-	public Books getBooksById(int id)   
+	public Books getBooksById(Integer id)   
 	{  
 	return booksRepository.findById(id).get();  
 	}  
@@ -33,9 +33,9 @@ public class BooksService {
 	booksRepository.save(books);  
 	}  
 	//deleting a specific record by using the method deleteById() of CrudRepository  
-	public void delete(int id)   
+	public void delete(int bookid)   
 	{  
-	booksRepository.deleteById(id);  
+	booksRepository.deleteById((Integer) bookid);  
 	}  
 	//updating a record  
 	public void update(Books books, int bookid)   
